@@ -81,9 +81,9 @@ def station_list():
     # create a list and jsonify
     # optionally, can remove #'s and have full list of station names and attributes
     stations_list = []
-    for item in all_stations:
+    for place in all_stations:
         station_dict = {}
-        station_dict["name"] = item.name
+        station_dict["name"] = place.name
         # station_dict["id"] = item.id
         # station_dict["station"] = item.station
         # station_dict["latitude"] = item.latitude
@@ -106,8 +106,8 @@ def tobs_yr():
     max_date = session.query(measurement.date).order_by(measurement.date.desc()).first()
 
     # find the exact date, and calculate 1 year back from then
-    end_date = dt.datetime.strptime(max_date[0], '%Y-%m-%d')
-    one_yr_ago = end_date - dt.timedelta(days=(365))
+    ending_date = dt.datetime.strptime(max_date[0], '%Y-%m-%d')
+    one_yr_ago = ending_date - dt.timedelta(days=(365))
 
     # determine the most active station
     most_active_station = (session.query(measurement.station, func.count(measurement.station)).group_by(measurement.station).order_by(func.count(measurement.station).desc()).first())
