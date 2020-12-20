@@ -8,4 +8,4 @@ Create charts to  analyze climate data in America. Use sqlalchemy to store and p
 
 **Additional Information**
 
-Used Python for the initial analysis code.  Used Sqllite/sqlachemy for the presentation
+Used Python for the initial analysis code.  Used Sqllite/sqlachemy for the presentation.
